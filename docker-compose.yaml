@@ -3,7 +3,7 @@ services:
   haproxy:
     image: app_haproxy
     networks:
-      cangnet:
+      Namenet:
         ipv4_address: 172.30.0.2
     container_name: haproxy
     ports:
@@ -12,7 +12,7 @@ services:
   redis:
     image: redis:latest
     networks:
-      cangnet:
+      Namenet:
         ipv4_address: 172.30.0.3
     container_name: redis
     depends_on:
@@ -21,7 +21,7 @@ services:
   node1:
     image: app_web
     networks:
-      cangnet:
+      Namenet:
         ipv4_address: 172.30.0.4
     environment:
       - REDIS_HOST=172.30.0.3
@@ -33,7 +33,7 @@ services:
   node2:
     image: app_web
     networks:
-      cangnet:
+      Namenet:
         ipv4_address: 172.30.0.5
     environment:
       - REDIS_HOST=172.30.0.3
@@ -46,7 +46,7 @@ services:
   node3:
     image: app_web
     networks:
-      cangnet:
+      Namenet:
         ipv4_address: 172.30.0.6
     environment:
       - REDIS_HOST=172.30.0.3
@@ -56,7 +56,7 @@ services:
       - node2
 
 networks:
-  cangnet:
+  Namenet:
     ipam:
       driver: default
       config:
